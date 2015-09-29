@@ -491,7 +491,7 @@ class Redis
 
           @sentinels = @options.delete(:sentinels).dup
           @role = @options.fetch(:role, "master").to_s
-          @master = @options[:host]
+          @master = @options.fetch(:master_name, @options[:host])
         end
 
         def check(client)
